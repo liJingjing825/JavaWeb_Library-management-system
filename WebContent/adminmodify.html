@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>管理员信息修改</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+
+
+<script type="text/javascript">
+function modify(){
+	var name=adminmidify.username.value;
+	var pass1=adminmidify.password.value;
+	var pass2=adminmidify.newpassword.value;
+	var pass3=adminmidify.newppassword.value;
+	if(name.length<=0){
+		alert("管理员名不能为空");
+		return false;
+	}else{
+		if(pass1.length<=0){
+			alert("请输入旧密码");
+			return false;
+		}else{
+			if(pass2.length<=0){
+				alert("新密码不能为空");
+				return false;
+			}else{
+				if(pass2!=pass3){
+					alert("新密码与确认密码不一致");
+					return false;
+				}else{
+					adminmidify.submit();
+				}
+			}
+		}
+	}
+}
+
+
+function change() {
+    var secondDiv=this.parentNode.getElementsByTagName("ul")[0];
+    //选择li的ul
+    if (secondDiv.className=="myhide")    
+        secondDiv.className="myshow";
+    else
+        secondDiv.className="myhide";
+}
+window.onload=function(){
+    var ul=document.getElementById("listul");
+    var ali=ul.childNodes;
+    var A;
+    for(var i=0;i<ali.length;i++)
+    {
+        if (ali[i].tagName=="LI" && ali[i].getElementsByTagName("ul").length)  //tagName的标签名要大写
+        //有li 且li里面有ul子菜单
+        {
+            A=ali[i].firstChild;
+            A.onclick=change; 
+        }
+    }
+}
+	</script>
+		<style>
+		
+			
+#navigation{
+    width: 200px;
+    font-family: arial;
+}
+#navigation>ul>li{
+    border-bottom: 1px solid #ad9f9f; /*添加下划线
+    子元素选择器*/
+}
+#navigation>ul>li>a{
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    text-decoration: none;
+    border-left: 12px solid #711111; /*左边的粗边*/
+}
+#navigation>ul>li>a:link,#navigation>ul>li>a:visited{
+    background-color: gray;
+    color: #FFFFFF;
+}
+
+/*二级菜单的样式*/
+#navigation ul li ul{
+    margin: 0px;padding: 0px;
+}
+#navigation ul li ul li{
+    border-top: 1px solid #ed9f9f;
+}
+#navigation ul li ul li a{
+    display: block; padding: 3px 3px 3px 0.5em;
+    text-decoration: none;
+    border-left: 28px solid #a71f1f;
+    border-right: 1px solid #711515;
+}
+#navigation ul li ul li a:link,#navigation ul li ul li a:visited{
+    background-color: #F99;
+    color: #FFFFFF;
+}
+#navigation ul li ul li a:hover{
+    background-color: #c2425d;
+    
+}
+#navigation ul li ul.myhide{
+    display: none;     /*隐藏元素*/
+}
+#navigation ul li ul.myshow{
+    display: block;   /*显示元素*/
+}
+.tr{
+position:absolute;
+			top:140px;
+			left:360px;
+}
+.bor{
+border:solid 1.5px white;
+			font-family:"微软雅黑";
+			font-size:14px;
+			color:black;
+			}
+		</style>
+</head>
+
+<body background="./image/1.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
+
+<div align="center" class="div1" >
+<font face="微软雅黑" color="#F0F8FF" size="+6">修改管理员信息</font>
+</div>
+
+
+<div style="width: 100%;height: 600px;">
+
+	<div style="float:left;width: 300px;height: 100%;"align="center">
+<div id="navigation">
+<br/><br/><br/><br/>
+    <ul id="listul">
+        <li style="list-style-type:none;"><a href="#">图书信息管理</a>
+        <ul class="myhide">
+            <li style="list-style-type:none;"><a href="addbook.html">添加图书</a></li>
+             <li style="list-style-type:none;"><a href="bookmodify.html">图书信息修改</a></li> 
+             <li style="list-style-type:none;"><a href="bookdelete.html">图书删除</a></li>
+             <li style="list-style-type:none;"><a href="book.jsp">图书信息查看</a></li>
+        </ul>
+        </li>
+        <li style="list-style-type:none;"><a href="#">图书类别管理</a>
+        <ul class="myhide">
+            <li style="list-style-type:none;"><a href="booktypeadd.html">图书类别添加</a></li>
+             <li style="list-style-type:none;"><a href="booktypemodify.html">图书类别修改</a></li> 
+        </ul>
+        </li>
+        <li style="list-style-type:none;"><a href="#">读者信息管理</a>
+        <ul class="myhide">
+            <li style="list-style-type:none;"><a href="readeradd.html">添加读者</a></li>
+             <li style="list-style-type:none;"><a href="readermodify.html">读者信息修改</a></li> 
+             <li style="list-style-type:none;"><a href="readerdelete.html">读者删除</a></li>
+             
+        </ul>
+        </li>
+        <li style="list-style-type:none;"><a href="#">借阅管理</a>
+        <ul class="myhide">
+            <li style="list-style-type:none;"><a href="bookloanedout.html">图书借阅</a></li>
+             <li style="list-style-type:none;"><a href="bookreturn1.html">图书归还</a></li> 
+             <li style="list-style-type:none;"><a href="booksearch.html">图书搜索</a></li>
+        </ul>
+        </li>
+        <li style="list-style-type:none;"><a href="#"> 管理员信息管理</a>
+        <ul class="myhide">
+            <li style="list-style-type:none;"><a href="adminadd.html">管理员添加</a></li>
+             <li style="list-style-type:none;"><a href="deleteadmin.html">管理员删除</a></li> 
+             <li style="list-style-type:none;"><a href="adminmodify.html">管理员信息修改</a></li>
+        </ul>
+        
+        <li style="list-style-type:none;"><a href="adminLogin.jsp">退出</a></li>
+        
+    </ul>
+<script type="text/javascript" src="../js/caidan.js"></script>  
+</div>
+</div>
+
+	
+	<div style="width:1020px;height: 100%;float:right;">
+	<form action="adminmodifyServlet" method="post" name="adminmidify">
+		<table width="475" height="247" border="0" align="center" class="tr">
+  <br/><br/><br/><br/><br/><br/>
+  <tr>
+    <td align="text" valign="middle"><input type="text" name="username" id="username" placeholder="      管理员名"style="width:200px; height:30px; border-radius:20px;background-color:transparent;"class="bor"/></td>
+    <td> <div id="divpass"></div>&nbsp;</td>
+  </tr>
+  <tr></tr><tr></tr>
+  <tr>
+    <td align="text" valign="middle"><input type="password" name="password" id="password" placeholder="      旧密码"style="width:200px; height:30px; border-radius:20px;background-color:transparent;"class="bor"/></td>
+    <td> <div id="divpass"></div>&nbsp;</td>
+  </tr>
+   <tr></tr><tr></tr>
+  <tr>
+    <td align="text" valign="middle"><input type="password" name="newpassword" id="newpassword" placeholder="      新密码"style="width:200px; height:30px; border-radius:20px;background-color:transparent;"class="bor"/></td>
+    <td> <div id="divpass"></div>&nbsp;</td>
+  </tr>
+   <tr></tr><tr></tr>
+  <tr>
+    <td align="text" valign="middle"><input type="password" name="newppassword" id="newppassword" placeholder="     确认新密码"style="width:200px; height:30px; border-radius:20px;background-color:transparent;"class="bor"/></td>
+    <td> <div id="divpass"></div>&nbsp;</td>
+  </tr>
+ <tr></tr><tr></tr>
+  <tr>
+    <td height="48" colspan="3"  valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="修改" id="修改" onclick="modify()" style="width:70px; height:30px; border-radius:20px; color:#F36"class="bor"/>
+  </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
